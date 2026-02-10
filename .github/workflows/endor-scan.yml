@@ -1,7 +1,7 @@
 name: Endor Labs Dependency and Secrets Scan
 on:
-  # push:
-  #   branches: [ master ]
+  push:
+    branches: [ master ]
   pull_request:
     branches: [ master ]
 jobs:
@@ -64,21 +64,21 @@ jobs:
     #     java-version: '17'
     # - name: Build Package
     #   run: mvn clean install
-    # - name: 'Endor Labs Scan Push to main'
-    #   if: ${{ github.event_name == 'push' }}
-    #   uses: endorlabs/github-action@v1 # Replace v1 with the commit SHA of the latest version of the GitHub Action for enhanced security
-    #   with:
-    #     namespace: 'doordash' # Replace with your Endor Labs tenant namespace
-    #     scan_dependencies: true
-    #     scan_secrets: true
-    #     pr: false
-    #     scan_summary_output_type: 'table'
-    #     sarif_file: 'findings.sarif'
-    #     api_key: ${{ secrets.ENDOR_API_CREDENTIALS_KEY }}
-    #     api_secret: ${{ secrets.ENDOR_API_CREDENTIALS_SECRET }}
-    #     enable_github_action_token: false
-    # - name: Upload findings to github
-    #   uses: github/codeql-action/upload-sarif@v3
-    #   with:
-    #     sarif_file: 'findings.sarif'
+    - name: 'Endor Labs Scan Push to main'
+      if: ${{ github.event_name == 'push' }}
+      uses: endorlabs/github-action@v1 # Replace v1 with the commit SHA of the latest version of the GitHub Action for enhanced security
+      with:
+        namespace: 'doordash' # Replace with your Endor Labs tenant namespace
+        scan_dependencies: true
+        scan_secrets: true
+        pr: false
+        scan_summary_output_type: 'table'
+        sarif_file: 'findings.sarif'
+        api_key: ${{ secrets.ENDOR_API_CREDENTIALS_KEY }}
+        api_secret: ${{ secrets.ENDOR_API_CREDENTIALS_SECRET }}
+        enable_github_action_token: false
+    - name: Upload findings to github
+      uses: github/codeql-action/upload-sarif@v3
+      with:
+        sarif_file: 'findings.sarif'
 
