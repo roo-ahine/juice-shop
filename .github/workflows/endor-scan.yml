@@ -32,7 +32,7 @@ jobs:
       if: github.event_name == 'pull_request'
       uses: endorlabs/github-action@v1.1.9
       with:
-        namespace: 'doordash/deliveroo'
+        namespace: 'doordash'
         scan_dependencies: true
         pr: true
         scan_summary_output_type: 'table'
@@ -45,7 +45,7 @@ jobs:
       if: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' }}
       uses: endorlabs/github-action@v1.1.9
       with:
-        namespace: 'doordash/deliveroo'
+        namespace: 'doordash'
         scan_dependencies: true
         pr: false
         scan_summary_output_type: 'table'
