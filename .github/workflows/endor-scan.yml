@@ -24,9 +24,9 @@ jobs:
 
     - name: 'Install application minimalistically'
       run: |
-          npm install --ignore-scripts
+          npm install --ignore-scripts --no-audit
           cd frontend
-          npm install --ignore-scripts --legacy-peer-deps
+          npm install --ignore-scripts --legacy-peer-deps --no-audit
 
     - name: 'Endor Labs Scan Pull Request'
       if: github.event_name == 'pull_request'
@@ -37,6 +37,7 @@ jobs:
         pr: true
         pr_incremental: true
         additional_args: '--quick-scan'
+        phantom_dependencies: true
         scan_summary_output_type: 'table'
         enable_pr_comments: true
         enable_github_action_token: false
