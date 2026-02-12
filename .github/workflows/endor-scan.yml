@@ -36,8 +36,9 @@ jobs:
         scan_dependencies: true
         pr: true
         scan_summary_output_type: 'table'
-        enable_pr_comments: true 
-        github_token: ${{ secrets.GITHUB_TOKEN }} # Required for PR comments on new policy violations
+        enable_pr_comments: true
+        enable_github_action_token: false
+        #github_token: ${{ secrets.GITHUB_TOKEN }} # Required for PR comments on new policy violations
         api_key: ${{ secrets.ENDOR_API_CREDENTIALS_KEY }}
         api_secret: ${{ secrets.ENDOR_API_CREDENTIALS_SECRET }}
 
@@ -49,5 +50,6 @@ jobs:
         scan_dependencies: true
         pr: false
         scan_summary_output_type: 'table'
+        enable_github_action_token: false
         api_key: ${{ secrets.ENDOR_API_CREDENTIALS_KEY }}
         api_secret: ${{ secrets.ENDOR_API_CREDENTIALS_SECRET }}
