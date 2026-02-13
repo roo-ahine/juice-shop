@@ -36,7 +36,7 @@ jobs:
         scan_dependencies: true
         pr: true
         pr_incremental: true
-        #additional_args: '--quick-scan'
+        additional_args: '--quick-scan'
         phantom_dependencies: true
         scan_summary_output_type: 'table'
         enable_pr_comments: true
