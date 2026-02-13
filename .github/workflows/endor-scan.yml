@@ -35,7 +35,7 @@ jobs:
         namespace: 'doordash'
         scan_dependencies: true
         pr: true
-        #pr_incremental: true
+        pr_incremental: true
         #additional_args: '--quick-scan'
         phantom_dependencies: true
         scan_summary_output_type: 'table'
